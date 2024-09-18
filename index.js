@@ -9,8 +9,15 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 app.use("/auth", require("./routes/auth"));
-app.use("/pro", require("./routes/protected"));
+
+//public route
 app.use("/test", require("./routes/test"));
+
+//protected route
+app.use("/products", require("./routes/products"));
+app.use("/user", require("./routes/user"));
+app.use("/cart", require("./routes/cart"));
+app.use("/payment", require("./routes/payment"));
 
 app.get("/", (req, res) => {
   res.send("Hello World");
